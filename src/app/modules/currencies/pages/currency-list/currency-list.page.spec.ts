@@ -1,9 +1,11 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
+import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 
+// App imports
 import {CoreModule} from '@core/core.module';
 import {SharedModule} from '@shared/shared.module';
-import {CurrencyListComponent} from './currency-list.component';
+import {CurrencyListComponent} from './currency-list.page';
 import {CurrencyService} from './../../services/currency.service';
 
 describe('CurrencyListComponent', () => {
@@ -18,9 +20,9 @@ describe('CurrencyListComponent', () => {
         HttpClientTestingModule
       ],
       declarations: [CurrencyListComponent],
-      providers: [CurrencyService]
-    })
-      .compileComponents();
+      providers: [CurrencyService],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -29,7 +31,4 @@ describe('CurrencyListComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create currency list component', () => {
-    expect(component).toBeTruthy();
-  });
 });
