@@ -1,7 +1,7 @@
 import {InjectionToken} from '@angular/core';
-import {AppConfig} from '@core/config/app.config';
+import {CurrenciesConfig} from '@modules/currencies/config/currencies.config';
 
-const CURRENCY_URL = AppConfig.endpoints.currency;
+const CURRENCY_URL = CurrenciesConfig.endpoints.currency;
 
 // Currencies module APIS
 export const CurrencyApis = {
