@@ -1,6 +1,11 @@
 # Currency catalog
 
-This project was created with Angular version 6.1.0.
+> ### Base project made with much  :heart: . Contains CRUD, patterns, generated library, etc.
+
+![travis](https://travis-ci.org/chnitiibrahim/currency-catalog.svg?branch=master)
+[![Build Status](https://travis-ci.org/chnitiibrahim/currency-catalog.svg?branch=master)](https://travis-ci.org/chnitiibrahim/currency-catalog)
+[![Coverage Status](https://coveralls.io/repos/github/chnitiibrahim/currency-catalog/badge.svg?branch=master)](https://coveralls.io/github/chnitiibrahim/currency-catalog?branch=master)
+
 
 ## Running application
 
