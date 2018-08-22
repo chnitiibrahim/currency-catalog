@@ -22,7 +22,7 @@ header {
   padding: 13px 0;
   background-color: #fff;
   z-index: 2;
-  box-shadow: 1px 1px 10px rgba(162, 157, 157, 0.68);
+  box-shadow: 1px 1px 0 rgba(162, 157, 157, 0.68);
 }
 
 header h1 {
@@ -42,7 +42,7 @@ header h1 {
   padding: 10px;
   text-align: center;
   font-size: 1.3em;
-  min-height: 130px;
+  min-height: 140px;
   border-radius: 5px;
   box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.22);
 }
