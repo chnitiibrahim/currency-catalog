@@ -1,0 +1,44 @@
+$active-color: #bba483;
+$font-title: 'Open Sans';
+
+.pagination{
+  text-align: center;
+  padding: 20px 0;
+
+  a{
+    display: inline-block;
+    font-family: $font-title;
+    font-size: 1.08em;
+    width: 50px;
+    height: 50px;
+    vertical-align: middle;
+    line-height: 45px;
+    text-decoration: none;
+    border-radius: 50%;
+    font-weight: 700;
+    margin: 4px;
+    box-shadow: 1px 2px 10px rgb(181, 181, 181);
+
+    &:hover,
+    &.selected{
+      color: #fff;
+      background-color: $active-color;
+      border-color: $active-color;
+    }
+  }
+
+  .active{
+    color: #fff;
+    background-color: $active-color;
+    border-color: $active-color
+  }
+}
+
+.sizes {
+  width: 100%;
+  text-align: center;
+
+  & select {
+    width: 25%;
+  }
+}
