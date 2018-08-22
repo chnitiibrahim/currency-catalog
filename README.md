@@ -1,7 +1,5 @@
 # Currency catalog
 
-This project was created with Angular version 6.1.0.
-
 ## Running application
 
 - cd currency-catalog
