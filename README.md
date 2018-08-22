@@ -1,11 +1,8 @@
 # Currency catalog
 
-> ### Base project made with much  :heart: . Contains CRUD, patterns, generated library, etc.
+> ### Base project made with much  :heart: .
 
-![travis](https://travis-ci.org/chnitiibrahim/currency-catalog.svg?branch=master)
 [![Build Status](https://travis-ci.org/chnitiibrahim/currency-catalog.svg?branch=master)](https://travis-ci.org/chnitiibrahim/currency-catalog)
-[![Coverage Status](https://coveralls.io/repos/github/chnitiibrahim/currency-catalog/badge.svg?branch=master)](https://coveralls.io/github/chnitiibrahim/currency-catalog?branch=master)
-
 
 ## Running application
 
