@@ -1,4 +1,4 @@
-import {Component, OnInit, HostListener, OnDestroy} from '@angular/core';
+import {Component, OnInit, HostListener} from '@angular/core';
 import {Router} from '@angular/router';
 
 // App imports
@@ -11,7 +11,7 @@ import {PaginationService} from '@core/services/pagination/pagination.service';
   templateUrl: './currency-list.page.html',
   styleUrls: ['./currency-list.page.scss']
 })
-export class CurrencyListComponent implements OnInit, OnDestroy {
+export class CurrencyListComponent implements OnInit {
 
   currencyFilter: any;
   currencies: any;
