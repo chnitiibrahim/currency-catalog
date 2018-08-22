@@ -1,27 +1,42 @@
-import { TestBed, async } from '@angular/core/testing';
-import { AppComponent } from './app.component';
+import {async, TestBed} from '@angular/core/testing';
+import {APP_BASE_HREF} from '@angular/common';
+
+import {AppComponent} from './app.component';
+import {AppRoutingModule} from './app-routing.module';
+import {CoreModule} from './core/core.module';
+import {APP_CONFIG, AppConfig} from '@core/config/app.config';
+
 describe('AppComponent', () => {
+  let fixture;
+  let component;
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [
+        CoreModule,
+        AppRoutingModule
+      ],
       declarations: [
         AppComponent
       ],
+      providers: [
+        {provide: APP_CONFIG, useValue: AppConfig},
+        {provide: APP_BASE_HREF, useValue: '/'}
+      ]
     }).compileComponents();
-  }));
-  it('should create the app', async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app).toBeTruthy();
-  }));
-  it(`should have as title 'testapp'`, async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('testapp');
-  }));
-  it('should render title in a h1 tag', async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
+
+    fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to testapp!');
+    component = fixture.debugElement.componentInstance;
   }));
+
+  it('should create the app', (() => {
+    expect(component).toBeTruthy();
+  }));
+
+  it('should change title', async(() => {
+    fixture.detectChanges();
+    expect(component.title.getTitle()).toBe('Currency catalog');
+  }));
+
 });
