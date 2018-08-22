@@ -1,9 +1,5 @@
 # Currency catalog
 
-> ### Base project made with much  :heart: .
-
-[![Build Status](https://travis-ci.org/chnitiibrahim/currency-catalog.svg?branch=master)](https://travis-ci.org/chnitiibrahim/currency-catalog)
-
 ## Running application
 
 - cd currency-catalog
