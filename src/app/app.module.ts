@@ -8,8 +8,11 @@ import {APP_CONFIG, AppConfig} from './core/config/app.config';
 import {TimingInterceptor} from './shared/interceptors/timing.interceptor';
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing.module';
+import {CurrenciesModule} from './modules/currencies/currencies.module';
+
 @NgModule({
   imports: [
+    CurrenciesModule,
     CoreModule,
     AppRoutingModule,
     BrowserModule,
