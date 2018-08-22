@@ -1,16 +1,28 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 
-import { AppComponent } from './app.component';
-
+// App imports
+import {CoreModule} from './core/core.module';
+import {APP_CONFIG, AppConfig} from './core/config/app.config';
+import {TimingInterceptor} from './shared/interceptors/timing.interceptor';
+import {AppComponent} from './app.component';
+import {AppRoutingModule} from './app-routing.module';
 @NgModule({
+  imports: [
+    CoreModule,
+    AppRoutingModule,
+    BrowserModule,
+    HttpClientModule
+  ],
   declarations: [
     AppComponent
   ],
-  imports: [
-    BrowserModule
+  providers: [
+    {provide: APP_CONFIG, useValue: AppConfig},
+    {provide: HTTP_INTERCEPTORS, useClass: TimingInterceptor, multi: true}
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
