@@ -7,26 +7,30 @@
   </div>
   <div class="pagination"
        *ngIf="pagination.pages && pagination.pages.length">
-    <a [ngClass]="{disabled:pagination.currentPage === 1}"
-       (click)="onChangePage(1)">
+    <button [ngClass]="{disabled:pagination.currentPage === 1}"
+            [attr.disabled]="pagination.currentPage === 1"
+            (click)="onChangePage(1)">
       «
-    </a>
-    <a [ngClass]="{disabled:pagination.currentPage === 1}"
-       (click)="onChangePage(pagination.currentPage - 1)">
+    </button>
+    <button [ngClass]="{disabled:pagination.currentPage === 1}"
+            [attr.disabled]="pagination.currentPage === 1"
+            (click)="onChangePage(pagination.currentPage - 1)">
       ‹
-    </a>
-    <a *ngFor="let page of pagination.pages"
-       [ngClass]="{active:pagination.currentPage === page}"
-       (click)="onChangePage(page)">
+    </button>
+    <button *ngFor="let page of pagination.pages"
+            [ngClass]="{active:pagination.currentPage === page}"
+            (click)="onChangePage(page)">
       {{page}}
-    </a>
-    <a [ngClass]="{disabled:pagination.currentPage === pagination.totalPages}"
-       (click)="onChangePage(pagination.currentPage + 1)">
+    </button>
+    <button [ngClass]="{disabled:pagination.currentPage === pagination.totalPages}"
+            [attr.disabled]="pagination.currentPage === pagination.totalPages"
+            (click)="onChangePage(pagination.currentPage + 1)">
       ›
-    </a>
-    <a [ngClass]="{disabled:pagination.currentPage === pagination.totalPages}"
-       (click)="onChangePage(pagination.totalPages)">
+    </button>
+    <button [ngClass]="{disabled:pagination.currentPage === pagination.totalPages}"
+            [attr.disabled]="pagination.currentPage === pagination.totalPages"
+            (click)="onChangePage(pagination.totalPages)">
       »
-    </a>
+    </button>
   </div>
 </div>

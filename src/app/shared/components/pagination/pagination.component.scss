@@ -1,11 +1,11 @@
 $active-color: #bba483;
 $font-title: 'Open Sans';
 
-.pagination{
+.pagination {
   text-align: center;
   padding: 20px 0;
 
-  a{
+  button {
     display: inline-block;
     font-family: $font-title;
     font-size: 1.08em;
@@ -18,16 +18,25 @@ $font-title: 'Open Sans';
     font-weight: 700;
     margin: 4px;
     box-shadow: 1px 2px 10px rgb(181, 181, 181);
+    outline: none;
+    border: none;
 
-    &:hover,
-    &.selected{
+    &:hover {
       color: #fff;
       background-color: $active-color;
       border-color: $active-color;
     }
+
+    &.disabled {
+      background-color: #eee;
+
+      &:hover{
+        color: #000;
+      }
+    }
   }
 
-  .active{
+  .active {
     color: #fff;
     background-color: $active-color;
     border-color: $active-color
