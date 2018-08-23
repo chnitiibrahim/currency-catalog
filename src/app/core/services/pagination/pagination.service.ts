@@ -10,9 +10,10 @@ export class PaginationService {
     }
 
     const device = window.screen.width > 768 ? 'laptop' : 'phone';
-    const values = device === 'phone' ? 3 : 5 ;
-    const startPage = currentPage <= values ? currentPage : currentPage - values ;
-    const endPage = currentPage + values ;
+    const values = device === 'phone' ? 3 : 5;
+    const startPage = currentPage <= values ? currentPage : currentPage - values;
+    const endPage = currentPage > totalPages ? currentPage
+      : currentPage <= totalPages - values ? currentPage + values : totalPages;
 
     const pages = Array.from(Array((endPage + 1) - startPage).keys()).map(i => startPage + i);
 
