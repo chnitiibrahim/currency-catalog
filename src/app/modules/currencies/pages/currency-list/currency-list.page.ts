@@ -21,6 +21,7 @@ export class CurrencyListComponent implements OnInit {
   currenciesPageSize: number;
   currenciesPageSizeList: any[];
   currenciesIsLoading: boolean;
+  errorMsg: boolean;
 
   constructor(private currencyService: CurrencyService,
               private router: Router,
@@ -28,6 +29,7 @@ export class CurrencyListComponent implements OnInit {
     this.currenciesPage = {};
     this.currenciesPageSize = CurrenciesConfig.pagination.pageSize;
     this.currenciesPageSizeList = CurrenciesConfig.pagination.pageSizeList;
+    this.errorMsg = false;
   }
 
   ngOnInit() {
@@ -48,14 +50,22 @@ export class CurrencyListComponent implements OnInit {
   loadCurrencies(pageSize: number, pageNumber: number): void {
     this.currenciesIsLoading = true;
     this.currencyService.getCurrenciesByPageAndSize(pageSize, pageNumber)
-      .subscribe((res: any) => {
-        console.log('==> ', res);
-        this.currenciesPageItems = res.data;
-        this.currenciesPageMeta = res.meta;
-        this.currenciesIsLoading = false;
-        this.currenciesPage = this.paginationService.getPage(this.currenciesPageMeta.pages, this.currenciesPageMeta.total,
-          pageNumber, this.currenciesPageSize);
-      });
+      .subscribe(
+        (res: any) => {
+          if (res) {
+            console.log('==> ', res);
+            this.currenciesPageItems = res.data;
+            this.currenciesPageMeta = res.meta;
+            this.currenciesPage = this.paginationService.getPage(this.currenciesPageMeta.pages, this.currenciesPageMeta.total,
+              pageNumber, this.currenciesPageSize);
+          }
+          this.currenciesIsLoading = false;
+        },
+        (error: any) => {
+          // TODO : to be improved by implement a generic error-handler
+          this.currenciesIsLoading = false;
+          this.errorMsg = true;
+        });
   }
 
   /**

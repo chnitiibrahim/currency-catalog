@@ -4,16 +4,20 @@
   </div>
   <div class="grid currency-catalog">
     <app-loader [isLoading]="currenciesIsLoading"></app-loader>
-    <div *ngIf="!currenciesIsLoading">
+    <div *ngIf="!currenciesIsLoading && !errorMsg">
       <div class="cell-phone-6 cell-tablet-3 cell-laptop-2"
            *ngFor="let currency of currenciesPageItems  | currencyFilter: currencyFilter"
            (click)="currencyDetails(currency)">
         <app-catalog-card [currency]="currency.attributes"></app-catalog-card>
       </div>
     </div>
+    <div class="error"
+         *ngIf="!currenciesIsLoading && errorMsg">
+      Something went wrong
+    </div>
   </div>
   <div class="currency-pagination"
-       *ngIf="!currenciesIsLoading">
+       *ngIf="!currenciesIsLoading && currenciesPageItems">
     <app-pagination [pagination]="currenciesPage"
                     [pageSize]="currenciesPageSize"
                     [pageSizeList]="currenciesPageSizeList"

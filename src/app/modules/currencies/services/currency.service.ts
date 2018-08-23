@@ -2,12 +2,16 @@ import {Observable, of, throwError as observableThrowError} from 'rxjs';
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {catchError, tap} from 'rxjs/operators';
+import {throwError} from 'rxjs';
+
 
 // App imports
 import {LoggerService} from '@core/services/logger/logger.service';
 import {CurrencyApis} from './currency.apis';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class CurrencyService {
 
   constructor(private http: HttpClient) {
@@ -46,9 +50,7 @@ export class CurrencyService {
     return this.http.get<any>(url)
       .pipe(
         tap(() => LoggerService.log(`fetched currency page[size]=${pageSize} page[number]=${pageNumber}`)),
-        catchError(
-          CurrencyService.handleError<any>(`getCurrenciesByPageAndSize page[size]=${pageSize} page[number]=${pageNumber}`)
-        )
+        catchError(err => throwError(err))
       );
   }
 }
