@@ -5,7 +5,6 @@ import {catchError, tap} from 'rxjs/operators';
 
 // App imports
 import {LoggerService} from '@core/services/logger/logger.service';
-import {Currency} from './../models/currency.model';
 import {CurrencyApis} from './currency.apis';
 
 @Injectable()
@@ -25,11 +24,31 @@ export class CurrencyService {
     };
   }
 
-  getCurrencies(): Observable<Currency[]> {
-    return this.http.get<Currency[]>(CurrencyApis.GET_ALL_CURRENCIES.URL)
+  getCurrencies(): Observable<any[]> {
+    return this.http.get<any[]>(CurrencyApis.GET_ALL_CURRENCIES.URL)
       .pipe(
         tap(() => LoggerService.log(`fetched currencies`)),
         catchError(CurrencyService.handleError('getCurrencies', []))
+      );
+  }
+
+  getCurrencyById(id: string): Observable<any> {
+    const url = `${CurrencyApis.GET_ALL_CURRENCIES.URL}/${id}`;
+    return this.http.get<any>(url)
+      .pipe(
+        tap(() => LoggerService.log(`fetched currency id=${id}`)),
+        catchError(CurrencyService.handleError<any>(`getCurrency id=${id}`))
+      );
+  }
+
+  getCurrenciesByPageAndSize(pageSize: number, pageNumber: number): Observable<any> {
+    const url = `${CurrencyApis.GET_ALL_CURRENCIES.URL}?page[size]=${pageSize}&page[number]=${pageNumber}`;
+    return this.http.get<any>(url)
+      .pipe(
+        tap(() => LoggerService.log(`fetched currency page[size]=${pageSize} page[number]=${pageNumber}`)),
+        catchError(
+          CurrencyService.handleError<any>(`getCurrenciesByPageAndSize page[size]=${pageSize} page[number]=${pageNumber}`)
+        )
       );
   }
 }

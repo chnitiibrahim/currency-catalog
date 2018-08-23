@@ -1,0 +1,17 @@
+<div class="grid">
+  <div class="cell-phone-12 cell-tablet-8 cell-laptop-8">
+    <input placeholder="Search..."
+           [(ngModel)]="searchFilter.text"
+           (ngModelChange)="onFilter($event)">
+  </div>
+  <div class="cell-phone-12 cell-tablet-4 cell-laptop-4">
+    <select [(ngModel)]="searchFilter.criteria"
+            (ngModelChange)="onFilter($event)">
+      <option [ngValue]="'searchText'">Select Criteria</option>
+      <option *ngFor="let criteria of searchCriteria"
+              [value]="criteria.value">
+        {{criteria.name}}
+      </option>
+    </select>
+  </div>
+</div>

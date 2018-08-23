@@ -1,0 +1,111 @@
+*,
+*:after,
+*:before {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box
+}
+
+.grid {
+  overflow: hidden;
+}
+
+[class*='cell-'] {
+  float: left;
+  position: relative;
+  padding: 0.65rem;
+  width:100%;
+}
+
+/* Grid classes for phone screen widths  */
+@media only screen {
+  .cell-phone-1 { width: 8.3333333333333%; }
+  .cell-phone-2 { width: 16.666666666667%; }
+  .cell-phone-3 { width: 25%; }
+  .cell-phone-4 { width: 33.333333333333%; }
+  .cell-phone-5 { width: 41.666666666667%; }
+  .cell-phone-6 { width: 50%; }
+  .cell-phone-7 { width: 58.333333333333%; }
+  .cell-phone-8 { width: 66.666666666667%; }
+  .cell-phone-9 { width: 75%; }
+  .cell-phone-10 { width: 83.333333333333%; }
+  .cell-phone-11 { width: 91.666666666667%; }
+  .cell-phone-12 { width: 100%; }
+}
+/* Grid classes for tablet screen widths  */
+@media only screen and (min-width: 48em) {
+  .cell-tablet-1 { width: 8.3333333333333%; }
+  .cell-tablet-2 { width: 16.666666666667%; }
+  .cell-tablet-3 { width: 25%; }
+  .cell-tablet-4 { width: 33.333333333333%; }
+  .cell-tablet-5 { width: 41.666666666667%; }
+  .cell-tablet-6 { width: 50%; }
+  .cell-tablet-7 { width: 58.333333333333%; }
+  .cell-tablet-8 { width: 66.666666666667%; }
+  .cell-tablet-9 { width: 75%; }
+  .cell-tablet-10 { width: 83.333333333333%; }
+  .cell-tablet-11 { width: 91.666666666667%; }
+  .cell-tablet-12 { width: 100%; }
+}
+
+/* Grid classes for wide Tablet / Laptop to Small Desktop Size */
+@media only screen and (min-width: 62em) {
+  .cell-laptop-1 { width: 8.3333333333333%; }
+  .cell-laptop-2 { width: 16.666666666667%; }
+  .cell-laptop3 { width: 25%; }
+  .cell-laptop-4 { width: 33.333333333333%; }
+  .cell-laptop-5 { width: 41.666666666667%; }
+  .cell-laptop-6 { width: 50%; }
+  .cell-laptop-7 { width: 58.333333333333%; }
+  .cell-laptop-8 { width: 66.666666666667%; }
+  .cell-laptop-9 { width: 75%; }
+  .cell-laptop-10 { width: 83.333333333333%; }
+  .cell-laptop-11 { width: 91.666666666667%; }
+  .cell-laptop-12 { width: 100%; }
+}
+
+/* Grid Classes for Large Desktop Size */
+.show { display: none; }
+@media only screen and (min-width: 75em) {
+  .cell-desktop-1 { width: 8.3333333333333%; }
+  .cell-desktop-2 { width: 16.666666666667%; }
+  .cell-desktop-3 { width: 25%; }
+  .cell-desktop-4 { width: 33.333333333333%; }
+  .cell-desktop-5 { width: 41.666666666667%; }
+  .cell-desktop-6 { width: 50%; }
+  .cell-desktop-7 { width: 58.333333333333%; }
+  .cell-desktop-8 { width: 66.666666666667%; }
+  .cell-desktop-9 { width: 75%; }
+  .cell-desktop-10 { width: 83.333333333333%; }
+  .cell-desktop-11 { width: 91.666666666667%; }
+  .cell-desktop-12 { width: 100%; }
+}
+
+/* Make visible or hidden block elements */
+.show-phone, .show, .show, .show { display: none !important; }
+.hide-phone { display: block !important; }
+
+@media only screen and (max-width: 47.938em) {
+  .phone { width: 100%; }
+  .hide-phone { display:none !important; }
+  .show-phone { display: block !important; }
+}
+
+@media only screen and (min-width: 48em) and (max-width: 61.938em) {
+  .hide { display: none !important; }
+  .show { display: block !important; }
+}
+
+@media only screen and (min-width: 62em) and (max-width: 74.938em) {
+  .hide { display: none !important; }
+  .show { display: block !important; }
+}
+
+@media only screen and (min-width: 75em) {
+  .hide { display: none !important; }
+  .show { display: block !important; }
+}
+
+

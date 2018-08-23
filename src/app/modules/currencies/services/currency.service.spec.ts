@@ -25,4 +25,11 @@ describe('CurrencyService', () => {
       expect(res.data.length).toBeGreaterThan(0);
     });
   }));
+
+  it('should get currency by id ACCEUR', async(() => {
+    currencyService.getCurrencyById('ACCEUR').subscribe((res: any) => {
+      expect(res.data.id).toEqual('ACCEUR');
+    });
+  }));
+
 });

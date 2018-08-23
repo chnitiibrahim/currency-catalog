@@ -1,11 +1,16 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 
-import {CurrencyListComponent} from './pages/currency-list/currency-list.component';
+// App imports
+import {CurrenciesConfig} from './config/currencies.config';
+import {CurrencyListComponent} from './pages/currency-list/currency-list.page';
+import {CurrencyDetailComponent} from './pages/currency-detail/currency-detail.page';
+
+const CURRENCIES_ROUTES = CurrenciesConfig.routes.currencies;
 
 const routes: Routes = [
-  {path: '', redirectTo: '/', pathMatch: 'full'},
-  {path: '', component: CurrencyListComponent}
+  {path: CURRENCIES_ROUTES, component: CurrencyListComponent},
+  {path: CURRENCIES_ROUTES + '/:id', component: CurrencyDetailComponent}
 ];
 
 @NgModule({
