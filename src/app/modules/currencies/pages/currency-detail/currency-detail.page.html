@@ -1,0 +1,10 @@
+<div class="currency-details" *ngIf="currency">
+  <h1> {{ currency.attributes.code }} </h1>
+  <ul>
+    <li> Code : {{ currency.attributes.code }}</li>
+    <li> Name : {{ currency.attributes.name }}</li>
+    <li> Currency type : {{ currency.attributes.currency_type }}</li>
+    <li> Code iso numeric3 : {{ currency.attributes.code_iso_numeric3 }}</li>
+    <li> Code ios alpha3 {{ currency.attributes.code_ios_alpha3 }}</li>
+  </ul>
+</div>

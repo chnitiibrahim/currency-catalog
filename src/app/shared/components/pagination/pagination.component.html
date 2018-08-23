@@ -1,0 +1,36 @@
+<div *ngIf="pagination">
+  <div class="sizes">
+    <select [(ngModel)]="pageSize"
+            (ngModelChange)="onChangePageSize()">
+      <option *ngFor="let item of pageSizeList" [value]="item">{{item}}</option>
+    </select>
+  </div>
+  <div class="pagination"
+       *ngIf="pagination.pages && pagination.pages.length">
+    <button [ngClass]="{disabled:pagination.currentPage === 1}"
+            [disabled]="pagination.currentPage === 1"
+            (click)="onChangePage(1)">
+      «
+    </button>
+    <button [ngClass]="{disabled:pagination.currentPage === 1}"
+            [disabled]="pagination.currentPage === 1"
+            (click)="onChangePage(pagination.currentPage - 1)">
+      ‹
+    </button>
+    <button *ngFor="let page of pagination.pages"
+            [ngClass]="{active:pagination.currentPage === page}"
+            (click)="onChangePage(page)">
+      {{page}}
+    </button>
+    <button [ngClass]="{disabled:pagination.currentPage === pagination.totalPages}"
+            [disabled]="pagination.currentPage === pagination.totalPages"
+            (click)="onChangePage(pagination.currentPage + 1)">
+      ›
+    </button>
+    <button [ngClass]="{disabled:pagination.currentPage === pagination.totalPages}"
+            [disabled]="pagination.currentPage === pagination.totalPages"
+            (click)="onChangePage(pagination.totalPages)">
+      »
+    </button>
+  </div>
+</div>
